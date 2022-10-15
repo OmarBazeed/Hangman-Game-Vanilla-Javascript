@@ -1,0 +1,350 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: tahoma;
+    background-color: black;
+}
+
+:root {
+    --main-color: #03a9f4a3;
+}
+
+
+/* Start Hangman Game  */
+
+.hangman-parent {
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.hangman-parent .Hangman-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.Hangman-container .game-info {
+    display: flex;
+    font-size: 25px;
+}
+
+.Hangman-container .game-info .game-name {
+    flex: 1;
+    text-align: left;
+}
+
+.Hangman-container .game-info .category {
+    flex: 1;
+    text-align: right;
+}
+
+.Hangman-container .game-info .category span {
+    color: #e96136;
+    text-transform: capitalize;
+}
+
+hr {
+    border: 1px solid rgb(159, 159, 159);
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.row {
+    display: flex;
+}
+
+.row .hangman-draw {
+    flex: 1;
+    background-color: #F8F8F8;
+    padding: 20px;
+    height: 324px;
+}
+
+.row .hangman-draw .the-draw {
+    width: 60px;
+    height: 280px;
+    border-bottom: 4px solid #222;
+    position: relative;
+    margin: auto;
+    left: -60px;
+    transition: .5s;
+}
+
+.hangman-draw .the-draw .the-stand {
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    margin-left: -2px;
+    left: 50%;
+    background-color: #222;
+    opacity: 0;
+    transition: .5s;
+}
+
+.hangman-draw .the-draw .the-hang {
+    opacity: 0;
+    transition: .5s;
+}
+
+.hangman-draw .the-draw .the-hang::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    background-color: #222;
+    width: 100px;
+    height: 4px;
+}
+
+.hangman-draw .the-draw .the-hang::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 110px;
+    background-color: #222;
+    width: 4px;
+    height: 30px;
+}
+
+.hangman-draw .the-draw .the-rope {
+    opacity: 0;
+    transition: .5s;
+}
+
+.hangman-draw .the-draw .the-rope::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 45px;
+    background-color: #222;
+    width: 4px;
+    height: 57px;
+    transform: skewX(-30deg);
+}
+
+.the-man .head {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #222;
+    top: 45px;
+    left: 88px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: .5s;
+}
+
+.the-man .head .smile {
+    position: absolute;
+    top: 30px;
+    left: 16px;
+    border-top: 3px solid #222;
+    border-radius: 50%;
+    height: 19px;
+    width: 14px;
+}
+
+.the-man .head::after {
+    position: absolute;
+    content: '';
+    top: 14px;
+    left: 8px;
+    width: 4px;
+    height: 4px;
+    border: 3px solid #222;
+    border-radius: 50%;
+    background: #2196f3;
+}
+
+.the-man .head::before {
+    position: absolute;
+    content: '';
+    top: 14px;
+    left: 28px;
+    width: 4px;
+    height: 4px;
+    border: 3px solid #222;
+    border-radius: 50%;
+    background: #2196f3;
+}
+
+.body {
+    height: 100px;
+    width: 4px;
+    position: absolute;
+    top: 94px;
+    left: 112px;
+    background-color: #222;
+    opacity: 0;
+    transition: .5s;
+}
+
+.hands {
+    opacity: 0;
+    transition: .5s;
+}
+
+.hands::before {
+    content: '';
+    position: absolute;
+    top: 108px;
+    left: 101px;
+    background-color: #222;
+    transform: skewX(-30deg);
+    width: 2px;
+    height: 35px;
+}
+
+.hands::after {
+    content: '';
+    position: absolute;
+    top: 108px;
+    left: 124px;
+    background-color: #222;
+    transform: skewX(30deg);
+    width: 2px;
+    height: 35px;
+}
+
+.legs {
+    opacity: 0;
+    transition: .5s;
+}
+
+.legs::before {
+    content: '';
+    position: absolute;
+    top: 190px;
+    left: 102px;
+    background-color: #222;
+    transform: skewX(-30deg);
+    width: 2px;
+    height: 35px;
+}
+
+.legs::after {
+    content: '';
+    position: absolute;
+    top: 190px;
+    left: 123px;
+    background-color: #222;
+    transform: skewX(30deg);
+    width: 2px;
+    height: 35px;
+}
+
+.letters {
+    flex: 2;
+    text-align: center;
+    margin: auto;
+    perspective: 1000px;
+}
+
+.letters .letter-box {
+    display: inline-block;
+    font-size: 25px;
+    width: 60px;
+    height: 50px;
+    background-color: #009688;
+    color: white;
+    text-transform: capitalize;
+    border-radius: 10px;
+    line-height: 50px;
+    margin-bottom: 13px;
+    margin-right: 21px;
+    cursor: pointer;
+    transition: .5s;
+    transform-style: preserve-3d;
+}
+
+.letters .letter-box:hover {
+    transform: scale(.9);
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 20px 14px tomato;
+}
+
+.letters-guess {
+    display: flex;
+    background-color: #f8f8f8;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    padding: 20px 5px;
+    color: initial;
+}
+
+.letters-guess .words-span {
+    width: 50px;
+    height: 50px;
+    background-color: #ecf4f8;
+    line-height: 50px;
+    margin-right: 10px;
+    border-bottom: 2px solid black;
+    font-size: 30px;
+}
+
+.letters-guess .words-span.empty {
+    border-bottom: none;
+    position: relative;
+}
+
+.letters-guess .words-span.empty::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 4px;
+    background-color: #009688;
+    content: '';
+}
+
+.clicked {
+    opacity: .5;
+    background: #54525270;
+    pointer-events: none;
+    color: black;
+}
+
+.loseDive,
+.WellDone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 520px;
+    height: 50px;
+    color: white;
+    font-size: 25px;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    line-height: 50px;
+    border-radius: 30px;
+    box-shadow: 0 0 5px 2px #fff0f0;
+    cursor: pointer;
+    background: chocolate;
+    transition: .5s;
+}
+
+.loseDive:hover,
+.WellDone:hover {
+    background: brown;
+    color: black;
+}
+
+.Hangman-container audio {
+    display: none;
+}
+
+
+/* End Hangman Game  */

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font-style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+
+    <title>Js Big Tutorials</title>
+</head>
+
+<body>
+
+
+    <!-- Start Hangman Game -->
+    <div class="hangman-parent">
+        <h1> <mark> Hangman Game</mark> </h1>
+        <div class="Hangman-container">
+            <div class="game-info">
+                <div class="game-name">Hangman</div>
+                <div class="category">
+                    Word From: <span></span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="hangman-draw">
+                    <div class="the-draw">
+                        <div class="the-stand"></div>
+                        <div class="the-hang"></div>
+                        <div class="the-rope"></div>
+                        <div class="the-man">
+                            <div class="head"> <span class="smile"></span></div>
+                            <div class="body"></div>
+                            <div class="hands"></div>
+                            <div class="legs"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="letters"></div>
+            </div>
+            <hr>
+            <div class="letters-guess"></div>
+        </div>
+        <audio class="good">
+            <source src="Sounds/mixkit-fantasy-game-success-notification-270.wav">
+        </audio>
+        <audio class="help">
+            <source src="Sounds/TNXAHPU-help.mp3">
+        </audio>
+        <audio class="enjoy">
+            <source src="Sounds/JA6LBAE-enjoy-life.mp3">
+        </audio>
+        <audio class="sad">
+            <source src="Sounds/MENPJAQ-hip-hop-stranger.mp3">
+        </audio>
+    </div>
+    <!-- End Hangman Game -->
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
